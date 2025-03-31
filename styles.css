@@ -1,0 +1,706 @@
+body {
+  width: 350px;
+  height: 500px;
+  /* background-color: #0A1A35; */
+  background-image: linear-gradient(rgb(44, 90, 11),rgb(16, 17, 16) 65%);
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#btnCreate {
+  margin: auto;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color: rgb(183, 248, 136);
+  z-index: 0;
+  border-radius: 12px;
+}
+
+#btnSignIn {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+
+#btnSignIn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(209, 255, 208);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+#btnCreate::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(183, 248, 136);
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+#btnSignIn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #7aff45, #ffffff,#24fd3a
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+#btnCreate::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+#btnSignIn:hover::before {
+  opacity: 1;
+}
+
+#btnSignIn:active:after {
+  background: transparent;
+}
+
+#btnSignIn:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnCreate:hover::before {
+  opacity: 1;
+}
+
+#btnCreate:active:after {
+  background: transparent;
+}
+
+#btnCreate:active {
+  color: #000;
+  font-weight: bold;
+}
+
+select {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+#logo {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+#btnNextFromSeed {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnNextFromSeed::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnNextFromSeed::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnNextFromSeed:hover::before {
+  opacity: 1;
+}
+
+#btnNextFromSeed:active:after {
+  background: transparent;
+}
+
+#btnNextFromSeed:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnBackFromSeed {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnBackFromSeed::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnBackFromSeed::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnBackFromSeed:hover::before {
+  opacity: 1;
+}
+
+#btnBackFromSeed:active:after {
+  background: transparent;
+}
+
+#btnBackFromSeed:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnProceedToSignIn {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnProceedToSignIn::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnProceedToSignIn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnProceedToSignIn:hover::before {
+  opacity: 1;
+}
+
+#btnProceedToSignIn:active:after {
+  background: transparent;
+}
+
+#btnProceedToSignIn:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnProceedToSignIn {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  align-self: center;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnProceedToSignIn::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnProceedToSignIn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnProceedToSignIn:hover::before {
+  opacity: 1;
+}
+
+#btnProceedToSignIn:active:after {
+  background: transparent;
+}
+
+#btnProceedToSignIn:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnRegister {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnRegister::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnRegister::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnRegister:hover::before {
+  opacity: 1;
+}
+
+#btnRegister:active:after {
+  background: transparent;
+}
+
+#btnRegister:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnRegister {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnRegister::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnRegister::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnRegister:hover::before {
+  opacity: 1;
+}
+
+#btnRegister:active:after {
+  background: transparent;
+}
+
+#btnRegister:active {
+  color: #000;
+  font-weight: bold;
+}
+#btnSignInSubmit {
+  margin-top: 20px;
+  padding: auto;
+  border: none;
+  outline: none;
+  color: #000000;
+  cursor: pointer;
+  position: relative;
+  
+  background-color:rgb(209, 255, 208);
+  z-index: 0;
+  border-radius: 12px;
+}
+#btnSignInSubmit::after {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+/* glow */
+#btnSignInSubmit::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #69ff2e, #ffffff,#03ff1c
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#btnSignInSubmit:hover::before {
+  opacity: 1;
+}
+
+#btnSignInSubmit:active:after {
+  background: transparent;
+}
+
+#btnSignInSubmit:active {
+  color: #000;
+  font-weight: bold;
+}
+
+
+
+
+input[type=text] {
+	appearance: none;
+	border: none;
+	outline: none;
+	border-bottom: .2em solid #45f619;
+	background: rgba(#ccd4ca, .2);
+	border-radius: .2em .2em 0 0;
+	padding: .4em;
+	color: #276717;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}

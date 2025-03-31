@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedals-Block Wallet</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add CryptoJS for AES encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <!-- Add IPFS HTTP client -->
+    <script src="https://unpkg.com/ipfs-http-client/dist/index.min.js"></script>
+  </head>
+  <body>
+    <div id="headerContainer" class="header">
+      <img src="icon.png" alt="Wallet Icon" class="icon" />
+      <h1>Pedals-Block Wallet</h1>
+    </div>
+
+    <!-- Initial Screen: Two Options -->
+    <div id="initialView">
+      <button id="btnCreate">Create Wallet</button>
+      <button id="btnSignIn">Sign In</button>
+    </div>
+
+    <!-- Create Wallet Flow: Show Seed Phrase -->
+    <div id="createWalletView" style="display: none">
+      <h2>Your New Wallet Seed Phrase</h2>
+      <div
+        id="seedbox"
+        style="
+          background-color: rgb(255, 255, 255);
+          width: 300px;
+          height: auto;
+          padding: 10px;
+          color: rgb(81, 81, 81);
+          border-radius: 15px;
+          font-size: 18px;
+          font-weight: bold;
+          box-shadow: 10px;
+        "
+      >
+        <p id="seedDisplay"></p>
+      </div>
+      <p>Please copy your seed phrase and store it safely.</p>
+      <button id="btnNextFromSeed">Next</button>
+      <button id="btnBackFromSeed" onclick="goBack()">Back</button>
+
+      <script>
+        function goBack() {
+          window.location.href = "initialView";
+        }
+      </script>
+    </div>
+
+    <!-- Username & Password Registration Screen -->
+    <div id="usernameRegistrationView" style="display: none">
+      <h2>Register Your Account</h2>
+      <label for="usernameInput">Enter a unique username:</label>
+      <input type="text" id="usernameInput" placeholder="Username" />
+      <br />
+      <label for="passwordInput">Enter a unique password:</label>
+      <input
+        type="password"
+        id="passwordInput"
+        style="
+          appearance: none;
+          border: none;
+          outline: none;
+          border-bottom: 0.2em solid #45f619;
+          background: rgba(#ccd4ca, 0.2);
+          border-radius: 0.2em 0.2em 0 0;
+          padding: 0.4em;
+          color: #276717;
+          margin-bottom: 20px;
+          margin-left: 10px;
+        "
+        placeholder="Password"
+      />
+      <br />
+      <label for="confirmPasswordInput">Confirm password:</label>
+      <input
+        type="password"
+        id="confirmPasswordInput"
+        style="
+          appearance: none;
+          border: none;
+          outline: none;
+          border-bottom: 0.2em solid #45f619;
+          background: rgba(#ccd4ca, 0.2);
+          border-radius: 0.2em 0.2em 0 0;
+          padding: 0.4em;
+          color: #276717;
+          margin-bottom: 20px;
+          margin-left: 10px;
+        "
+        placeholder="Confirm Password"
+      />
+      <br />
+      <button id="btnRegister">Register</button>
+      <p id="regMsg"></p>
+      <!-- New button to proceed after registration -->
+      <button id="btnProceedToSignIn" style="display: none">
+        Proceed to Sign In
+      </button>
+    </div>
+
+    <!-- Sign In Screen -->
+    <div id="signInView" style="display: none">
+      <h2>Sign In</h2>
+      <label
+        for="signInUsername"
+        style="
+          font-size: 25px;
+        "
+        >Username:</label
+      >
+      <input
+        type="text"
+        id="signInUsername"
+        placeholder="Enter your username"
+        style="border-radius: 6px; height: 25px; margin: 15px 8px"
+      />
+      <br />
+      <label for="signInPassword" style="font-size: 25px">Password:</label>
+      <input
+        type="password"
+        id="signInPassword"
+        placeholder="Enter your password"
+        style=" height: 25px; margin: 15px 8px;
+          appearance: none;
+          border: none;
+          outline: none;
+          border-bottom: 0.2em solid #45f619;
+          background: rgba(#ccd4ca, 0.2);
+          border-radius: 0.2em 0.2em 0 0;
+          padding: 0.4em;
+          color: #276717;
+          margin-bottom: 20px;
+          margin-left: 10px;"
+      />
+      <br />
+      <button id="btnSignInSubmit" >
+        Sign In
+      </button>
+      <p id="signInMsg"></p>
+    </div>
+
+    <!-- Main Transaction Screen (for demonstration) -->
+    <div id="mainView" style="display: none">
+      <p id="accountDisplay"></p>
+      <h2>Sign Transaction</h2>
+      <form id="txForm">
+        <label>From: <input type="text" id="from" readonly /></label><br />
+        <label
+          >To:
+          <input type="text" id="to" placeholder="Recipient address" /></label
+        ><br />
+        <label
+          >Amount:
+          <input type="number" id="amount" placeholder="Amount" /></label
+        ><br />
+        <button type="submit">Sign Transaction</button>
+      </form>
+      <p id="txMsg"></p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
